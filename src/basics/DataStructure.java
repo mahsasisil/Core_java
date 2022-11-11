@@ -6,8 +6,9 @@ public class DataStructure {
 //how to choose: item count, duplicates, order,performance and memory, different types
 
     public static void main(String[] args) {
-        linkedList();
-        arrayList();
+        stack();
+        queue();
+        priorityQueue();
     }
 
     //---------------------------------------------------------------------------
@@ -36,7 +37,7 @@ public class DataStructure {
 
 
     //keep ordering, add by index, fast,doubly-linked list/queue implementation
-    //faster for adding and removing, they are not thread safe.need to synchronize it before use
+//faster for adding and removing, they are not thread safe.need to synchronize it before use
     public static void linkedList() {
         LinkedList<String> shoppingList = new LinkedList<>();
         shoppingList.add("Apple");
@@ -50,7 +51,7 @@ public class DataStructure {
         Util.log("linked list : ", shoppingList.toString());
         //synchronize shoppingList to make it thread safe
         //thread safe, Synchronization in java is the capability to control the access of multiple threads to any shared resource,
-        List<String> syncList=Collections. synchronizedList(shoppingList) ;
+        List<String> syncList = Collections.synchronizedList(shoppingList);
 
     }
 
@@ -67,8 +68,44 @@ public class DataStructure {
         Util.log("array list removed: ", shoppingList.toString());
     }
 
+    //first in , last out , stack class can not move elements, it is not tread safe and synchronized
     public static void stack() {
 
+        Deque<String> stack = new ArrayDeque<>();
+        stack.push("one");
+        stack.push("two");
+        stack.push("three");
+        Util.log("peak one : ", stack.peek());
+        Util.log("stack", stack.toString());
+        stack.poll();
+        Util.log("stack", stack.toString());
+    }
+
+
+    public static void queue() {
+
+    Queue<String> queue=new ArrayDeque<>();
+    queue.offer("one");
+    queue.offer("tow");
+    queue.offer("three");
+    Util.log("queue: ",queue.toString());
+    Util.log("queue: ",queue.toString());
+    queue.poll();
+
+
+    }
+
+// peak/poll the item based on the alphabetical order
+
+    public static void priorityQueue() {
+
+        Queue<String> queue=new PriorityQueue<>();
+        queue.offer("2");
+        queue.offer("1");
+        queue.offer("3");
+        Util.log("priorityQueue: ",queue.toString());
+        Util.log("priorityQueue: poll",queue.poll());
+        Util.log("priorityQueue: peak",queue.peek());
 
     }
 
