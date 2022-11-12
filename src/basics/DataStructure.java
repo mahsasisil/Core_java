@@ -6,9 +6,10 @@ public class DataStructure {
 //how to choose: item count, duplicates, order,performance and memory, different types
 
     public static void main(String[] args) {
-        stack();
-        queue();
-        priorityQueue();
+       // stack();
+       //queue();
+        //priorityQueue();
+        treesets();
     }
 
     //---------------------------------------------------------------------------
@@ -68,7 +69,7 @@ public class DataStructure {
         Util.log("array list removed: ", shoppingList.toString());
     }
 
-    //first in , last out , stack class can not move elements, it is not tread safe and synchronized
+    //first in , last out , stack class can not move elements, it is not tread safe and synchronized, use push instead of offer
     public static void stack() {
 
         Deque<String> stack = new ArrayDeque<>();
@@ -84,13 +85,13 @@ public class DataStructure {
 
     public static void queue() {
 
-    Queue<String> queue=new ArrayDeque<>();
-    queue.offer("one");
-    queue.offer("tow");
-    queue.offer("three");
-    Util.log("queue: ",queue.toString());
-    Util.log("queue: ",queue.toString());
-    queue.poll();
+        Queue<String> queue = new ArrayDeque<>();
+        queue.offer("one");
+        queue.offer("tow");
+        queue.offer("three");
+        Util.log("queue: ", queue.toString());
+        Util.log("queue: ", queue.toString());
+        queue.poll();
 
 
     }
@@ -99,17 +100,27 @@ public class DataStructure {
 
     public static void priorityQueue() {
 
-        Queue<String> queue=new PriorityQueue<>();
+        Queue<String> queue = new PriorityQueue<>();
         queue.offer("2");
         queue.offer("1");
         queue.offer("3");
-        Util.log("priorityQueue: ",queue.toString());
-        Util.log("priorityQueue: poll",queue.poll());
-        Util.log("priorityQueue: peak",queue.peek());
+        Util.log("priorityQueue: ", queue.toString());
+        Util.log("priorityQueue: poll", queue.poll());
+        Util.log("priorityQueue: peak", queue.peek());
 
     }
+    //store unique element in sorted order
 
-
+// will not add string with the same lenght.
+    public static void treesets() {
+        Set<String> treeSet = new TreeSet<>(Comparator.comparing(String::length));
+        treeSet.add("a");
+        treeSet.add("bb");
+        treeSet.add("ccc");
+        Util.log("TreeSet",treeSet.toString());
+        treeSet.add("aaa");
+        Util.log("TreeSet",treeSet.toString());
+    }
 
 
 }
