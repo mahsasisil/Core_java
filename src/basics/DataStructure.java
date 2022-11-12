@@ -1,4 +1,6 @@
+//version 11
 package basics;
+
 
 import java.util.*;
 
@@ -107,6 +109,9 @@ public class DataStructure {
         Util.log("priorityQueue: ", queue.toString());
         Util.log("priorityQueue: poll", queue.poll());
         Util.log("priorityQueue: peak", queue.peek());
+
+
+
 
     }
     //store unique element in sorted order
